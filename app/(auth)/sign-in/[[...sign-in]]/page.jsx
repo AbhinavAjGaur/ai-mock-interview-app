@@ -28,12 +28,11 @@ export default function Page() {
             </a>
 
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-              Welcome to Squid 🦑
+              Welcome to MOCK AI 
             </h2>
 
             <p className="mt-4 leading-relaxed text-white/90">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-              nam dolorum aliquam, quibusdam aperiam voluptatum.
+            Mock AI is a personalized interview preparation platform that tailors questions based on your job skills, position, and experience. Record your answers, receive AI-generated feedback and ratings, and compare your responses with correct answers to enhance your interview readiness.
             </p>
           </div>
         </section>
@@ -60,12 +59,11 @@ export default function Page() {
               </a>
 
               <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                Welcome to AI Mock Interview 🦑
+                Welcome to MOCK AI 
               </h1>
 
               <p className="mt-4 leading-relaxed text-gray-500">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi nam dolorum aliquam, quibusdam aperiam voluptatum.
+              Mock AI is a personalized interview preparation platform that tailors questions based on your job skills, position, and experience. Record your answers, receive AI-generated feedback and ratings, and compare your responses with correct answers to enhance your interview readiness.
               </p>
             </div>
 
