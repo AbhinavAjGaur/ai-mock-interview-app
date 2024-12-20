@@ -105,7 +105,7 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
           }}
         />
       </div>
-      <Button disabled={loading} variant="outline" className="my-5 bg-primary" onClick={StartStopRecording}>
+      <Button disabled={loading} variant="outline" className="my-5 bg-primary hover:bg-blue-600" onClick={StartStopRecording}>
         {isRecording ?
           <h2 className='text-red-600 flex gap-2'>
             <StopCircle />Stop Recording
