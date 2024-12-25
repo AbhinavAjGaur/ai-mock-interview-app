@@ -62,7 +62,7 @@ function StartInterview() {
           </Button>
         )}
 
-        {activeQuestionIndex != mockInterviewQuestion?.length - 1 && (
+        {activeQuestionIndex < 4 && (
           <Button
             onClick={() => setActiveQuestionIndex(activeQuestionIndex + 1)}
           >
@@ -70,9 +70,9 @@ function StartInterview() {
           </Button>
         )}
 
-        {activeQuestionIndex == mockInterviewQuestion?.length - 1 && (
-          <Link href={'/dashboard/interview/'+interviewData?.mockId+"/feedback"}>
-          <Button >End Interview</Button>
+        {activeQuestionIndex >= 4 && (
+          <Link href={'/dashboard/interview/' + interviewData?.mockId + "/feedback"}>
+            <Button>End Interview</Button>
           </Link>
         )}
       </div>
