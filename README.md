@@ -5,15 +5,16 @@ This is an AI-powered mock interview application built with Next.js. It generate
 Follow these steps to run the project locally:
 
 1. Clone the repository
-bash
+``` bash
 Copy
 Edit
 git clone https://github.com/yourusername/ai-mock-interview.git
 cd ai-mock-interview
+```
 2. Install dependencies
 Make sure you have Node.js (18 or above) installed. Then install the required node modules:
 
-bash
+``` bash
 Copy
 Edit
 npm install
@@ -21,9 +22,10 @@ npm install
 yarn install
 # or
 pnpm install
+```
 3. Set up environment variables
 Create a .env.local file in the root directory with the following fields:
-
+``` 
 ini
 Copy
 Edit
@@ -42,6 +44,7 @@ NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT=5
 NEXT_PUBLIC_INFORMATON="Enable Video Web Cam and Microphone to start your AI Generated Mock Interview. It has 5 question which you can answer and at the last you will get the report on the basis of your answer. NOTE: We never record your video, you can disable the webcam at any time you want"
 
 NEXT_PUBLIC_QUESTION_NOTE=Click on Record Answer when you wnat to answer the question. At the end of the interview we will give you the feedback along with correct answer for each question and your answer to compare it.
+``` 
 ## 🔑 How to get these keys:
 Clerk Keys (Authentication)
 
