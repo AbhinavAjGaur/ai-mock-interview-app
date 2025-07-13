@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## AI Mock Interview
+This is an AI-powered mock interview application built with Next.js. It generates interview questions, records your video and audio responses, and provides feedback at the end to improve your preparation.
 
-## Getting Started
+## 🛠️ Getting Started
+Follow these steps to run the project locally:
 
-First, run the development server:
+1. Clone the repository
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/ai-mock-interview.git
+cd ai-mock-interview
+2. Install dependencies
+Make sure you have Node.js (18 or above) installed. Then install the required node modules:
 
-```bash
+bash
+Copy
+Edit
+npm install
+# or
+yarn install
+# or
+pnpm install
+3. Set up environment variables
+Create a .env.local file in the root directory with the following fields:
+
+ini
+Copy
+Edit
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+
+NEXT_PUBLIC_DRIZZLE_DB_URL=your_postgresql_database_url
+
+NEXT_PUBLIC_GEMINI_API_KEY=your_google_gemini_api_key
+
+NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT=5
+
+NEXT_PUBLIC_INFORMATON="Enable Video Web Cam and Microphone to start your AI Generated Mock Interview. It has 5 question which you can answer and at the last you will get the report on the basis of your answer. NOTE: We never record your video, you can disable the webcam at any time you want"
+
+NEXT_PUBLIC_QUESTION_NOTE=Click on Record Answer when you wnat to answer the question. At the end of the interview we will give you the feedback along with correct answer for each question and your answer to compare it.
+## 🔑 How to get these keys:
+Clerk Keys (Authentication)
+
+Go to Clerk Dashboard
+
+Create a new application
+
+Get your Publishable Key and Secret Key from the API Keys section.
+
+PostgreSQL Database URL
+
+You can use a hosted database like Neon or Supabase.
+
+Create a new project and obtain the connection string (URL) for your database.
+
+Google Gemini API Key
+
+Go to Google AI Studio
+
+Create a project, enable the Gemini API, and generate your API key.
+
+4. Run the development server
+bash
+Copy
+Edit
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3005 with your browser to see the result.
 
-Open [http://localhost:3005](http://localhost:3005) with your browser to see the result.
+## ⚙️ Project Structure
+Uses Next.js App Router with app/page.js
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Authentication via Clerk
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Database connected via Drizzle ORM + Neon PostgreSQL
 
-## Learn More
+AI question generation and evaluation via Google Gemini API
 
-To learn more about Next.js, take a look at the following resources:
+Video & audio recording via browser APIs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Deployment
+The easiest way to deploy this Next.js app is to use Vercel, the creators of Next.js. Make sure to add the above environment variables in your Vercel project settings before deployment.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📚 Learn More
+Next.js Documentation – learn about Next.js features and API.
 
-## Deploy on Vercel
+Clerk Documentation – authentication setup and management.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Google Gemini API – for AI integration.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💡 Notes
+✔️ Enable webcam and microphone for full mock interview experience.
+✔️ Your videos are never recorded or saved.
+✔️ You can disable webcam anytime during the interview.
+
+## 👤 Author
+Developed by Abhinav Gaur
