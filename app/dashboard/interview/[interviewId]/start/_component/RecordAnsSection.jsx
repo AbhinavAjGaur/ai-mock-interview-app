@@ -42,6 +42,7 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
     }
   }, [userAnswer]);
 
+
   const StartStopRecording = async () => {
     if (isRecording) {
       stopSpeechToText();      
@@ -55,14 +56,21 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
       console.log(userAnswer);
       setLoading(true);
 
+      // ---- INSERTED LOGGING START ----
+      console.log('mockInterviewQuestion:', mockInterviewQuestion);
+      console.log('activeQuestionIndex:', activeQuestionIndex);
+      console.log('Saving question:', mockInterviewQuestion[activeQuestionIndex]?.question);
+      // ---- INSERTED LOGGING END ----
+
       const feedbackPrompt = `Question: ${mockInterviewQuestion[activeQuestionIndex]?.question}, User Answer: ${userAnswer}. ` +
         "Depends on the question and user's answer for given interview question. " +
         "Please give us a rating out of 10 for the answers and feedback as an area of improvement in 50 words, if any. " +
         "Provide the response in JSON format with 'rating' and 'feedback' fields.";
 
+
       const result = await chatSession.sendMessage(feedbackPrompt);
 
-      const mockJsonResp = (await result.response.text()).replace('```json', '').replace('```', '');
+      const mockJsonResp = (await result.response.text()).replace('``````', '');
       console.log(mockJsonResp);
       const JsonFeedbackResp = JSON.parse(mockJsonResp);
 
@@ -91,6 +99,7 @@ function RecordAnsSection({ mockInterviewQuestion, activeQuestionIndex, intervie
       setLoading(false);
     }
   };
+
 
   return (
     <div className='flex items-center justify-center flex-col'>
