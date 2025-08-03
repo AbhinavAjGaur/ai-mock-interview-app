@@ -1,11 +1,3 @@
-// Debugging Notes:
-// The console output reveals that mockInterviewQuestion is an object, not an array.
-// Specifically, it has a property interviewQuestions that is an array.
-// This explains why the .map() function is not working directly on mockInterviewQuestion.
-
-// Solution:
-// Update the code to access the interviewQuestions property of mockInterviewQuestion.
-
 import React from 'react'; 
 import { Lightbulb, Volume2 } from 'lucide-react';
 
@@ -20,12 +12,14 @@ function QuestionSection({ mockInterviewQuestion, activeQuestionIndex }) {
   };
 
   // Safely access interviewQuestions array
-  const questions = mockInterviewQuestion?.interviewQuestions || [];
+  const questions = Array.isArray(mockInterviewQuestion)
+    ? mockInterviewQuestion
+    : mockInterviewQuestion?.interviewQuestions || [];
 
   return (
     <div className='p-5 mt-10 border rounded-lg'>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
-        {questions.map((question, index) => (
+        {questions.map((_, index) => (
           <h2
             key={index}
             className={`p-2 bg-secondary rounded-full text-xs md:text-sm text-center cursor-pointer ${
@@ -37,7 +31,9 @@ function QuestionSection({ mockInterviewQuestion, activeQuestionIndex }) {
         ))}
       </div>
 
-      <h2 className='my-5 text-md md:text-lg '>{questions[activeQuestionIndex]?.question}</h2>
+      <h2 className='my-5 text-md md:text-lg '>
+        {questions[activeQuestionIndex]?.question || 'No question available'}
+      </h2>
       <Volume2
         className='cursor-pointer'
         onClick={() => textToSpeech(questions[activeQuestionIndex]?.question)}
@@ -48,7 +44,10 @@ function QuestionSection({ mockInterviewQuestion, activeQuestionIndex }) {
           <Lightbulb />
           <strong>Note:</strong>
         </h2>
-        <h2 className='text-sm text-primary my-2'>{process.env.NEXT_PUBLIC_QUESTION_NOTE}</h2>
+        <h2 className='text-sm text-primary my-2'>
+          {process.env.NEXT_PUBLIC_QUESTION_NOTE ||
+            'Please follow the instructions carefully.'}
+        </h2>
       </div>
     </div>
   );
